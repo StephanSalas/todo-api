@@ -17,30 +17,30 @@ public class APIController {
     @Autowired
     TodoRepository todoRepository;
 
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity getOneTodo(@PathVariable String id) {
-        return new ResponseEntity(todoRepository.findById(id).orElse(null), HttpStatus.OK);
-    }
+//    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity getOneTodo(@PathVariable String id) {
+//        return new ResponseEntity(todoRepository.findById(id).orElse(null), HttpStatus.OK);
+//    }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity getAllTodos() {
-        return new ResponseEntity(todoRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity(todoRepository.findAllByCustomQueryWithStream(), HttpStatus.OK);
     }
 
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity postTodo(@RequestBody Todo todo) {
-        return new ResponseEntity(todoRepository.save(todo), HttpStatus.CREATED);
-    }
-
-    @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity editTodo(@RequestBody Todo todo) {
-        return new ResponseEntity(todoRepository.save(todo), HttpStatus.OK);
-    }
-
-    @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity deleteTodo(@PathVariable String id) {
-        todoRepository.deleteById(id);
-        return new ResponseEntity(HttpStatus.OK);
-    }
+//    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity postTodo(@RequestBody Todo todo) {
+//        return new ResponseEntity(todoRepository.save(todo), HttpStatus.CREATED);
+//    }
+//
+//    @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity editTodo(@RequestBody Todo todo) {
+//        return new ResponseEntity(todoRepository.save(todo), HttpStatus.OK);
+//    }
+//
+//    @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity deleteTodo(@PathVariable String id) {
+//        todoRepository.deleteById(id);
+//        return new ResponseEntity(HttpStatus.OK);
+//    }
 
 }

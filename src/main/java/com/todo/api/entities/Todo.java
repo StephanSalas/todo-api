@@ -2,11 +2,12 @@ package com.todo.api.entities;
 
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity
+@Document(collection = "todos")
 @Data
 public class Todo {
     @Id
