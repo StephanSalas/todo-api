@@ -9,6 +9,5 @@ import java.util.stream.Stream;
 
 @Repository
 public interface TodoRepository extends MongoRepository<Todo, String> {
-    @Query("{}")
-    Stream<Todo> findAllByCustomQueryWithStream();
+
 }
